@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Autenticação Client</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Validação de Aplicação</h1>
+{% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+<form method="POST">
+    <label>ClientID: <input type="text" name="clientID"></label><br><br>
+    <label>ClientSecret: <input type="password" name="clientSecret"></label><br><br>
+    <button type="submit">Validar</button>
+</form>
+</body>
+</html>

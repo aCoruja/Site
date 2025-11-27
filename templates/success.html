@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>JWT Gerado</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>JWT Gerado!</h1>
+<p>Token:</p>
+<textarea readonly style="width:100%;height:120px">{{ token }}</textarea>
+
+<h2>Decodificação (simples)</h2>
+<pre id="decoded"></pre>
+
+<script>
+const token = "{{ token }}";
+function parseJWT (token) {
+  const [header, payload, signature] = token.split('.');
+  function decode(str){return JSON.parse(atob(str))};
+  return {header: decode(header), payload: decode(payload), signature};
+}
+document.getElementById("decoded").innerText = JSON.stringify(parseJWT(token), null, 2);
+</script>
+</body>
+</html>
